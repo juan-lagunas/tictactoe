@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-8ls6cgca@^yzgd!e1lk=!4on00u9rt!$&d9(mw2rrh-yp-^vps
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.vercel.app', '127.0.0.1']
+ALLOWED_HOSTS = []
 
 TAILWIND_APP_NAME = 'theme'
 
@@ -80,7 +80,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'tictactoe.wsgi.app'
+WSGI_APPLICATION = 'tictactoe.wsgi.application'
 
 
 # Database
