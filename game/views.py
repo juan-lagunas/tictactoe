@@ -13,7 +13,7 @@ def index(request):
         request.session["moves"] = []
 
     board = request.session["board"]
-    turn = request.session["turn"]
+    turn = request.session["turn"][-1]
     moves = request.session["moves"]
 
     winnerRows = [
@@ -76,7 +76,7 @@ def index(request):
 
     return render(request, 'game/index.html', {
         'board': board,
-        'turn': turn[-1],
+        'turn': turn,
     })
 
 
