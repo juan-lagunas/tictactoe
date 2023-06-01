@@ -1,0 +1,61 @@
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+
+    {% tailwind_css %}
+</head>
+<body>
+    <div class="flex h-screen w-screen bg-pink-600">
+        <div class="m-auto">
+            <div class="w-[500px]">
+                <div class="text-center text-white text-5xl font-bold mb-10">Tic-tac-toe!</div>
+
+                {% if message %}
+                <div class="text-2xl text-center font-bold text-white uppercase mb-10">{{ message }}</div>
+                {% else %}
+                <div class="text-2xl text-center font-bold text-white mb-10">It is {{ turn }}'s turn.</div>
+                {% endif %}
+
+                <div class="h-[500px] grid grid-cols-3 grid-rows-3 gap-2 overflow-hidden mb-10">
+                    {% for row in board %}
+                        {% for col in row %}
+                        
+                            {% if col %}
+                            <div class="bg-sky-500 flex rounded-2xl">
+                                <div class="m-auto text-3xl font-bold text-white">{{ col }}</div>
+                            </div>
+                            {% else %}
+                                {% if message %}
+                                <div class="bg-violet-500 flex rounded-2xl">
+                                    <div class="m-auto text-3xl font-bold text-white"></div>
+                                </div>
+                                {% else %}
+                                <a href="{% url 'game:play' row=forloop.parentloop.counter0 col=forloop.counter0 %}" class="bg-violet-400 hover:bg-violet-500 flex rounded-2xl ">
+                                    <div class="m-auto text-3xl font-bold text-white"></div>
+                                </a>
+                                {% endif %}
+                            {% endif %}
+
+                        {% endfor %}
+                    {% endfor %}
+                </div>
+                
+                <div class="w-full text-center">
+                    {% if message %}
+                    <a class="py-3 px-5 bg-zinc-100 uppercase text-sm font-bold hover:rounded-md" href="{% url 'game:reset' %}">Play again</a>
+                    {% else %}
+                    <a class="py-3 px-5 bg-zinc-100 uppercase text-sm font-bold hover:rounded-md" href="{% url 'game:reset' %}">Reset</a>
+                    <a class="py-3 px-5 bg-zinc-100 uppercase text-sm font-bold hover:rounded-md" href="{% url 'game:undo' %}">Undo</a>
+                    {% endif %}
+                </div>
+                    
+            </div>
+        </div>
+    </div>
+</body>
+</html>
