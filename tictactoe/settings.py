@@ -80,7 +80,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'tictactoe.wsgi.app'
+WSGI_APPLICATION = 'tictactoe.wsgi.application'
 
 
 # Database
