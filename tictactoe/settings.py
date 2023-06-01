@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-8ls6cgca@^yzgd!e1lk=!4on00u9rt!$&d9(mw2rrh-yp-^vps
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['.vercel.app', '127.0.0.1']
 
 TAILWIND_APP_NAME = 'theme'
 
@@ -86,12 +86,7 @@ WSGI_APPLICATION = 'tictactoe.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+DATABASES = {}
 
 
 # Password validation
