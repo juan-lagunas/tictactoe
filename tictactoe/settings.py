@@ -35,6 +35,8 @@ INTERNAL_IPS = [
 
 NPM_BIN_PATH = r"C:\Program Files\nodejs\npm.cmd"
 
+LD_LIBRARY_PATH="/usr/local/lib"
+
 # Application definition
 
 INSTALLED_APPS = [
